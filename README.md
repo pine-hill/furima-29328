@@ -31,7 +31,7 @@ Things you may want to cover:
 | --------------- | ------ | ------------------------------ |
 | nickname        | string | null: false                    |
 | email           | string | null: false, uniqueness : true |
-| password        | string | null: false, uniqueness : true |
+| password        | string | null: false                    |
 | last_name       | string | null: false                    |
 | first_name      | string | null: false                    |
 | last_name_kana  | string | null: false                    |
@@ -40,8 +40,8 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :item
-- has_many :ordered_item
+- has_many :items
+- has_many :ordered_items
 
 ## items テーブル
 
@@ -50,7 +50,6 @@ Things you may want to cover:
 | user          | references  | null: false, foreign_key: true |
 | item_name     | string      | null: false                    |
 | price         | integer     | null: false,                   |
-| seller        | string      | null: false,                   |
 | description   | text        | null: false,                   |
 | category_id   | integer     | null: false,                   |
 | condition_id  | integer     | null: false,                   |
@@ -63,7 +62,7 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :ordered_item
 
-## orderedItems テーブル
+## ordered_items テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -80,7 +79,7 @@ Things you may want to cover:
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| item          | references | null: false, foreign_key: true |
+| ordered_item  | references | null: false, foreign_key: true |
 | post_code     | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
