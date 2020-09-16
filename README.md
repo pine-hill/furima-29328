@@ -27,32 +27,21 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column   | Type   | Options                        |
-| -------- | ------ | ------------------------------ |
-| nickname | string | null: false                    |
-| email    | string | null: false, uniqueness : true |
-| password | string | null: false, uniqueness : true |
+| Column          | Type   | Options                        |
+| --------------- | ------ | ------------------------------ |
+| nickname        | string | null: false                    |
+| email           | string | null: false, uniqueness : true |
+| password        | string | null: false, uniqueness : true |
+| last_name       | string | null: false                    |
+| first_name      | string | null: false                    |
+| last_name_kana  | string | null: false                    |
+| first_name_kana | string | null: false                    |
+| date_of_birth   | date   | null: false                    |
 
 ### Association
 
-- has_many :items
-- has_many :orderedItems
-- has_one :profiles
-
-## profiles テーブル
-
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| user            | references | null: false, foreign_key: true |
-| last_name       | string     | null: false                    |
-| first_name      | string     | null: false                    |
-| last_name_kana  | string     | null: false                    |
-| first_name_kana | string     | null: false                    |
-| date_of_birth   | date       | null: false                    |
-
-### Association
-
-- belongs_to :users
+- has_many :item
+- has_many :ordered_item
 
 ## items テーブル
 
@@ -62,7 +51,6 @@ Things you may want to cover:
 | item_name     | string      | null: false                    |
 | price         | integer     | null: false,                   |
 | seller        | string      | null: false,                   |
-| image_url     | text        | null: false,                   |
 | description   | text        | null: false,                   |
 | category_id   | integer     | null: false,                   |
 | condition_id  | integer     | null: false,                   |
@@ -72,8 +60,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :users
-- has_one :orderedItems
+- belongs_to :user
+- has_one :ordered_item
 
 ## orderedItems テーブル
 
@@ -84,9 +72,9 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
-- has_one :addresses
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
 ## addresses テーブル
 
@@ -97,9 +85,9 @@ Things you may want to cover:
 | prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | block         | string     | null: false                    |
-| building_name | string     | null: false                    |
+| building_name | string     |                                |
 | phone_number  | string     | null: false, uniqueness: true  |
 
 ### Association
 
-- belongs_to :orderedItems
+- belongs_to :ordered_item
