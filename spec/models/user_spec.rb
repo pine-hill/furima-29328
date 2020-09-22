@@ -9,14 +9,6 @@ describe User do
       it 'nicknameとemail、passwordとpassword_confirmation、名字、名前、名字(カナ)、名前(カナ)、生年月日が存在すれば登録できる' do
         expect(@user).to be_valid
       end
-      it 'emailに@が含まれている、かつ、emailが重複していなければ登録できる' do
-        expect(@user).to be_valid
-      end
-      it 'passwordが半角英数混合、かつ、6文字以上であれば登録できる' do
-        @user.password = '123abc'
-        @user.password_confirmation = '123abc'
-        expect(@user).to be_valid
-      end
     end
 
     context '新規登録できないパターン' do
@@ -74,6 +66,16 @@ describe User do
       end
       it '名前(カナ)が空では登録できない' do
         @user.first_name_kana = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include('First name kanaを入力してください', 'First name kanaは不正な値です')
+      end
+      it '名字(カナ)がカタカナ意外では登録できない' do
+        @user.last_name_kana = 'foo'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Last name kanaを入力してください', 'Last name kanaは不正な値です')
+      end
+      it '名前(カナ)がカタカナ意外では登録できない' do
+        @user.first_name_kana = 'bar'
         @user.valid?
         expect(@user.errors.full_messages).to include('First name kanaを入力してください', 'First name kanaは不正な値です')
       end
