@@ -22,6 +22,16 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Priceは一覧にありません", "Priceは不正な値です")
       end
+      it "価格が300円より小さい場合" do
+        @item.price = "299"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Priceは一覧にありません")
+      end
+      it "価格が9999999円より大きい場合" do
+        @item.price = "10000000"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Priceは一覧にありません")
+      end
       it "価格に全角数字が入力されていた場合" do
         @item.price = "１２３４５６"
         @item.valid?
