@@ -22,6 +22,26 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Priceは一覧にありません", "Priceは不正な値です")
       end
+      it "価格に全角数字が入力されていた場合" do
+        @item.price = "１２３４５６"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Priceは一覧にありません")
+      end
+      it "価格にアルファベットが入力されていた場合" do
+        @item.price = "abcABC"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Priceは一覧にありません")
+      end
+      it "価格に漢字が入力されていた場合" do
+        @item.price = "菅義偉"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Priceは一覧にありません")
+      end
+      it "価格にひらがなが入力されていた場合" do
+        @item.price = "けやき"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Priceは一覧にありません")
+      end
       it "商品の説明が入力されていない場合" do
         @item.description = ""
         @item.valid?
