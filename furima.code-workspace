@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Downloads/furimaの素材/stylesheets/items"
+		},
+		{
+			"path": "../../Downloads/furimaの素材/stylesheets/orders"
+		},
+		{
+			"path": "../../Downloads/furimaの素材/stylesheets/shared"
+		},
+		{
+			"path": "../../Downloads/furimaの素材/stylesheets/user"
+		}
+	],
+	"settings": {}
+}

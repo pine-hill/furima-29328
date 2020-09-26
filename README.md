@@ -48,7 +48,7 @@ Things you may want to cover:
 | Column        | Type        | Options                        |
 | ------------- | ----------- | ------------------------------ |
 | user          | references  | null: false, foreign_key: true |
-| name          | string      | null: false                    |
+| name          | string      | null: false,                   |
 | price         | integer     | null: false,                   |
 | description   | text        | null: false,                   |
 | category_id   | integer     | null: false,                   |

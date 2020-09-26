@@ -60,3 +60,4 @@ gem 'gimei'
 gem 'pry-rails'
 gem 'rails-i18n'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'active_hash'

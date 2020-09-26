@@ -72,12 +72,12 @@ describe User do
       it '名字(カナ)がカタカナ意外では登録できない' do
         @user.last_name_kana = 'foo'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Last name kanaを入力してください', 'Last name kanaは不正な値です')
+        expect(@user.errors.full_messages).to include('Last name kanaは不正な値です')
       end
       it '名前(カナ)がカタカナ意外では登録できない' do
         @user.first_name_kana = 'bar'
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name kanaを入力してください', 'First name kanaは不正な値です')
+        expect(@user.errors.full_messages).to include('First name kanaは不正な値です')
       end
       it '生年月日が空では登録できない' do
         @user.date_of_birth = ''
