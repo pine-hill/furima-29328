@@ -2,6 +2,9 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   def index
+    if current_user.id == @item.user.id || @item.ordered_item != nil
+      redirect_to root_path
+    end
     @ordered_item_address = OrderedItemAddress.new
     unless user_signed_in?
       redirect_to new_user_session_path

@@ -4,7 +4,8 @@ class OrderedItemAddress
     :city ,:block ,:building_name ,:phone_number,:token
 
   with_options presence: true do
-    validates :prefecture_id, :city, :block, :token
+    validates :prefecture_id, numericality: { other_than: 1 }
+    validates :city, :block, :token
     validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
     validates :phone_number, format: { with: /\A\d{10,11}\z/}
   end

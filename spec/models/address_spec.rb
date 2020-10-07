@@ -32,6 +32,11 @@ RSpec.describe Address, type: :model do
         @address.valid?
         expect(@address.errors.full_messages).to include("Prefectureを入力してください")
       end
+      it "都道府県の選択が「---」場合" do
+        @address.prefecture_id = '1'
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Prefectureを入力してください")
+      end
       it "市区町村が入力されていない場合" do
         @address.city = ''
         @address.valid?
