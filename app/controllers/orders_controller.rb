@@ -9,8 +9,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    #binding.pry
-    #@ordered_item = OrderedItem.new
     @ordered_item_address = OrderedItemAddress.new(ordered_item_address_params)
     if @ordered_item_address.valid?
       pay_item

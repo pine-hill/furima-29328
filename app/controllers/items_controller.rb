@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :set_item, only: [:show, :edit ,:update ,:destroy]
   before_action :new_ordered_items, only: [:index, :show]
-  #before_action :correct_user, only: [:show]
 
   def index
     @items = Item.includes(:user).order("created_at DESC")
@@ -63,15 +62,4 @@ class ItemsController < ApplicationController
   def new_ordered_items
     @ordered_items = OrderedItem.all
   end
-
-  #def correct_user
-    #@micropost = current_user.microposts.find_by(id: params[:id])
-      #unless @micropost
-        #redirect_to root_path
-      #end
-  #end
-
-  #def current_user
-    #User.find_by(id: session[:user_id])
-  #end
 end

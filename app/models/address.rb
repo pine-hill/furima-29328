@@ -5,6 +5,6 @@ class Address < ApplicationRecord
   with_options presence: true do
     validates :prefecture_id, :city, :block
     validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
-    validates :phone_number, format: { with: /\A[0-9]+\z/}
+    validates :phone_number, format: { with: /\A\d{10,11}\z/}
   end
 end

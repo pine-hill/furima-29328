@@ -57,6 +57,11 @@ RSpec.describe Address, type: :model do
         @address.valid?
         expect(@address.errors.full_messages).to include()
       end
+      it "電話番号に数字以外が入力された場合" do
+        @address.phone_number = 'aBう江オヵ7'
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Phone numberは不正な値です")
+      end
     end
   end
 end
