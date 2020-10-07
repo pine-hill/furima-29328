@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
 
   def index
@@ -6,9 +7,6 @@ class OrdersController < ApplicationController
       redirect_to root_path
     end
     @ordered_item_address = OrderedItemAddress.new
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
   end
 
   def create
