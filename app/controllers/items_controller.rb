@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :set_item, only: [:show, :edit ,:update ,:destroy]
-
+  before_action :new_ordered_items, only: [:index, :show]
+  
   def index
     @items = Item.includes(:user).order("created_at DESC")
   end
@@ -56,5 +57,9 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def new_ordered_items
+    @ordered_items = OrderedItem.all
   end
 end

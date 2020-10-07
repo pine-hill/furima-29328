@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe User do
+RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
   end
@@ -37,7 +37,7 @@ describe User do
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('Passwordを入力してください', 'Passwordは6文字以上で入力してください', 'Passwordは不正な値です', 'Password confirmationとPasswordの入力が一致しません')
+        expect(@user.errors.full_messages).to include("Passwordを入力してください", "Passwordは不正な値です", "Password confirmationとPasswordの入力が一致しません")
       end
       it 'passwordが5文字以下であれば登録できない' do
         @user.password = '123ab'

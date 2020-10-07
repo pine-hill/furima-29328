@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
-  has_one :ordered_item
+  has_one :ordered_item, dependent: :destroy
   has_one_attached :image
   belongs_to_active_hash :category
   belongs_to_active_hash :handling_time
