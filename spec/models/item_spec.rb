@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe Item do
+RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
     @item.image = fixture_file_upload('/Users/pine_hill/Pictures/test_image.png')

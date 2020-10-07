@@ -10,6 +10,6 @@ class User < ApplicationRecord
     validates :last_name_kana, :first_name_kana, format: { with: /\A[ァ-ン]+\z/ }
   end
   
-  has_many :items
-  has_many :ordered_items
+  has_many :items ,dependent: :destroy
+  has_many :ordered_items ,dependent: :destroy
 end
