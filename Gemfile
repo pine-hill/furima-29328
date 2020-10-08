@@ -34,7 +34,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
   gem 'factory_bot_rails'
   gem 'faker'
-  # gem 'sqlite3'
 end
 
 group :development do
@@ -64,7 +63,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'active_hash'
 gem 'payjp'
 gem 'randwordjp'
+
 group :production do
   gem 'rails_12factor'
-  gem 'sqlite3','1.4.2'
 end
