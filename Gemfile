@@ -65,5 +65,4 @@ gem 'payjp'
 gem 'randwordjp'
 group :production do
   gem 'rails_12factor'
-  gem 'sqlite3','1.4.2'
 end
