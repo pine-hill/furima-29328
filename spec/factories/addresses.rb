@@ -8,5 +8,6 @@ FactoryBot.define do
     block                      {'3-34-25'}
     building_name              {'コーポやくしま202号室'}
     phone_number               {Faker::PhoneNumber.subscriber_number(length: 11)}
+    association:ordered_item
   end
 end
